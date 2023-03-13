@@ -1,0 +1,10 @@
+# buf.gen.yaml
+version: v1
+managed:
+  enabled: true
+plugins:
+  - plugin: buf.build/grpc/python
+    out: ocfl-index
+  # dependencies
+  - plugin: buf.build/protocolbuffers/python
+    out: ocfl-index
