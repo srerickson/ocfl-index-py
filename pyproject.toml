@@ -7,6 +7,7 @@ name = "ocflindex"
 version = "0.0.1"
 dependencies = [
     "grpcio",
+    "protobuf",
 ]
 
 [tool.setuptools.packages.find]
