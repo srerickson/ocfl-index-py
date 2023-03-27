@@ -64,9 +64,10 @@ class IndexServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def IndexAll(self, request, context):
-        """Start an asynchronous indexing process to scan the storage and ingest
-        object inventories. IndexAll returns immediately with a status indicating
-        whether the indexing process was started.
+        """Start an asynchronous indexing process to scan the storage root and ingest
+        index inventories. Indexed objects not found during the storage root scan
+        are removed from the index. IndexAll returns immediately with a status
+        indicating whether the indexing process was started.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -74,21 +75,21 @@ class IndexServiceServicer(object):
 
     def IndexIDs(self, request, context):
         """Index inventories for the specified object ids. Unlike IndexAll, IndexIDs
-        after the object_ids have been indexed.
+        returns after the object ids have been indexed.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListObjects(self, request, context):
-        """OCFL Objects in the index
+        """List all objects in the index in lexigraphical order by ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetObject(self, request, context):
-        """Details on a specific OCFL object in the index 
+        """Get details for a specific object in the index
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

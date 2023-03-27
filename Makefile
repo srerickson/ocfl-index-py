@@ -1,7 +1,8 @@
 .PHONY: proto
 proto:
+	which buf # is buf installed?
 	rm -rf proto/ocfl
-	rm -rf ocfl-index/ocfl
+	rm -rf ocflindex/ocfl
 	buf export buf.build/srerickson/ocfl -o proto
 	buf mod update proto
 	buf lint proto

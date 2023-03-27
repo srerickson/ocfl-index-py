@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13ocfl/v1/index.proto\x12\x07ocfl.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x12\n\x10GetStatusRequest\"\xf2\x01\n\x11GetStatusResponse\x12\x16\n\x06status\x18\x01 \x01(\tR\x06status\x12&\n\x0fstore_root_path\x18\x02 \x01(\tR\rstoreRootPath\x12\x1d\n\nstore_spec\x18\x03 \x01(\tR\tstoreSpec\x12+\n\x11store_description\x18\x04 \x01(\tR\x10storeDescription\x12(\n\x10num_object_paths\x18\x05 \x01(\x05R\x0enumObjectPaths\x12\'\n\x0fnum_inventories\x18\x06 \x01(\x05R\x0enumInventories\"\x11\n\x0fIndexAllRequest\"\x12\n\x10IndexAllResponse\"0\n\x0fIndexIDsRequest\x12\x1d\n\nobject_ids\x18\x01 \x03(\tR\tobjectIds\"\x12\n\x10IndexIDsResponse\"P\n\x12ListObjectsRequest\x12\x1d\n\npage_token\x18\x01 \x01(\tR\tpageToken\x12\x1b\n\tpage_size\x18\x02 \x01(\x05R\x08pageSize\"\xb2\x02\n\x13ListObjectsResponse\x12=\n\x07objects\x18\x01 \x03(\x0b\x32#.ocfl.v1.ListObjectsResponse.ObjectR\x07objects\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x1a\xb3\x01\n\x06Object\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x12\n\x04head\x18\x02 \x01(\tR\x04head\x12\x39\n\nv1_created\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tv1Created\x12=\n\x0chead_created\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bheadCreated\"/\n\x10GetObjectRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\"\xa5\x04\n\x11GetObjectResponse\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x12\n\x04spec\x18\x02 \x01(\tR\x04spec\x12\x1b\n\troot_path\x18\x03 \x01(\tR\x08rootPath\x12)\n\x10\x64igest_algorithm\x18\x04 \x01(\tR\x0f\x64igestAlgorithm\x12>\n\x08versions\x18\x05 \x03(\x0b\x32\".ocfl.v1.GetObjectResponse.VersionR\x08versions\x12\x39\n\nindexed_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tindexedAt\x1a\x9b\x02\n\x07Version\x12\x10\n\x03num\x18\x01 \x01(\tR\x03num\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12\x34\n\x07\x63reated\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12@\n\x04user\x18\x04 \x01(\x0b\x32\'.ocfl.v1.GetObjectResponse.Version.UserH\x00R\x04user\x88\x01\x01\x12\x12\n\x04size\x18\x05 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x06 \x01(\x08R\x07hasSize\x1a\x34\n\x04User\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07\x61\x64\x64ress\x18\x02 \x01(\tR\x07\x61\x64\x64ressB\x07\n\x05_user\"\xc5\x01\n\x15GetObjectStateRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12\x1b\n\tbase_path\x18\x03 \x01(\tR\x08\x62\x61sePath\x12\x1c\n\trecursive\x18\x04 \x01(\x08R\trecursive\x12\x1d\n\npage_token\x18\x05 \x01(\tR\tpageToken\x12\x1b\n\tpage_size\x18\x06 \x01(\x05R\x08pageSize\"\xd8\x02\n\x16GetObjectStateResponse\x12\x16\n\x06\x64igest\x18\x01 \x01(\tR\x06\x64igest\x12\x14\n\x05isdir\x18\x02 \x01(\x08R\x05isdir\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x04 \x01(\x08R\x07hasSize\x12@\n\x08\x63hildren\x18\x05 \x03(\x0b\x32$.ocfl.v1.GetObjectStateResponse.ItemR\x08\x63hildren\x12&\n\x0fnext_page_token\x18\x06 \x01(\tR\rnextPageToken\x1aw\n\x04Item\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05isdir\x18\x02 \x01(\x08R\x05isdir\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x04 \x01(\x08R\x07hasSize\x12\x16\n\x06\x64igest\x18\x05 \x01(\tR\x06\x64igest\"\x13\n\x11\x46ollowLogsRequest\".\n\x12\x46ollowLogsResponse\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message2\x8c\x04\n\x0cIndexService\x12\x44\n\tGetStatus\x12\x19.ocfl.v1.GetStatusRequest\x1a\x1a.ocfl.v1.GetStatusResponse\"\x00\x12\x41\n\x08IndexAll\x12\x18.ocfl.v1.IndexAllRequest\x1a\x19.ocfl.v1.IndexAllResponse\"\x00\x12\x41\n\x08IndexIDs\x12\x18.ocfl.v1.IndexIDsRequest\x1a\x19.ocfl.v1.IndexIDsResponse\"\x00\x12J\n\x0bListObjects\x12\x1b.ocfl.v1.ListObjectsRequest\x1a\x1c.ocfl.v1.ListObjectsResponse\"\x00\x12\x44\n\tGetObject\x12\x19.ocfl.v1.GetObjectRequest\x1a\x1a.ocfl.v1.GetObjectResponse\"\x00\x12S\n\x0eGetObjectState\x12\x1e.ocfl.v1.GetObjectStateRequest\x1a\x1f.ocfl.v1.GetObjectStateResponse\"\x00\x12I\n\nFollowLogs\x12\x1a.ocfl.v1.FollowLogsRequest\x1a\x1b.ocfl.v1.FollowLogsResponse\"\x00\x30\x01\x42\x8b\x01\n\x0b\x63om.ocfl.v1B\nIndexProtoP\x01Z3github.com/srerickson/ocfl-index/gen/ocfl/v1;ocflv1\xa2\x02\x03OXX\xaa\x02\x07Ocfl.V1\xca\x02\x07Ocfl\\V1\xe2\x02\x13Ocfl\\V1\\GPBMetadata\xea\x02\x08Ocfl::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13ocfl/v1/index.proto\x12\x07ocfl.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x12\n\x10GetStatusRequest\"\xf2\x01\n\x11GetStatusResponse\x12\x16\n\x06status\x18\x01 \x01(\tR\x06status\x12&\n\x0fstore_root_path\x18\x02 \x01(\tR\rstoreRootPath\x12\x1d\n\nstore_spec\x18\x03 \x01(\tR\tstoreSpec\x12+\n\x11store_description\x18\x04 \x01(\tR\x10storeDescription\x12(\n\x10num_object_paths\x18\x05 \x01(\x05R\x0enumObjectPaths\x12\'\n\x0fnum_inventories\x18\x06 \x01(\x05R\x0enumInventories\"\x11\n\x0fIndexAllRequest\"\x12\n\x10IndexAllResponse\"0\n\x0fIndexIDsRequest\x12\x1d\n\nobject_ids\x18\x01 \x03(\tR\tobjectIds\"\x12\n\x10IndexIDsResponse\"m\n\x12ListObjectsRequest\x12\x1d\n\npage_token\x18\x01 \x01(\tR\tpageToken\x12\x1b\n\tpage_size\x18\x02 \x01(\x05R\x08pageSize\x12\x1b\n\tid_prefix\x18\x03 \x01(\tR\x08idPrefix\"\xb2\x02\n\x13ListObjectsResponse\x12=\n\x07objects\x18\x01 \x03(\x0b\x32#.ocfl.v1.ListObjectsResponse.ObjectR\x07objects\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x1a\xb3\x01\n\x06Object\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x12\n\x04head\x18\x02 \x01(\tR\x04head\x12\x39\n\nv1_created\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tv1Created\x12=\n\x0chead_created\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bheadCreated\"/\n\x10GetObjectRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\"\xa5\x04\n\x11GetObjectResponse\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x12\n\x04spec\x18\x02 \x01(\tR\x04spec\x12\x1b\n\troot_path\x18\x03 \x01(\tR\x08rootPath\x12)\n\x10\x64igest_algorithm\x18\x04 \x01(\tR\x0f\x64igestAlgorithm\x12>\n\x08versions\x18\x05 \x03(\x0b\x32\".ocfl.v1.GetObjectResponse.VersionR\x08versions\x12\x39\n\nindexed_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tindexedAt\x1a\x9b\x02\n\x07Version\x12\x10\n\x03num\x18\x01 \x01(\tR\x03num\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12\x34\n\x07\x63reated\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12@\n\x04user\x18\x04 \x01(\x0b\x32\'.ocfl.v1.GetObjectResponse.Version.UserH\x00R\x04user\x88\x01\x01\x12\x12\n\x04size\x18\x05 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x06 \x01(\x08R\x07hasSize\x1a\x34\n\x04User\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07\x61\x64\x64ress\x18\x02 \x01(\tR\x07\x61\x64\x64ressB\x07\n\x05_user\"\xc5\x01\n\x15GetObjectStateRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12\x1b\n\tbase_path\x18\x03 \x01(\tR\x08\x62\x61sePath\x12\x1c\n\trecursive\x18\x04 \x01(\x08R\trecursive\x12\x1d\n\npage_token\x18\x05 \x01(\tR\tpageToken\x12\x1b\n\tpage_size\x18\x06 \x01(\x05R\x08pageSize\"\xd8\x02\n\x16GetObjectStateResponse\x12\x16\n\x06\x64igest\x18\x01 \x01(\tR\x06\x64igest\x12\x14\n\x05isdir\x18\x02 \x01(\x08R\x05isdir\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x04 \x01(\x08R\x07hasSize\x12@\n\x08\x63hildren\x18\x05 \x03(\x0b\x32$.ocfl.v1.GetObjectStateResponse.ItemR\x08\x63hildren\x12&\n\x0fnext_page_token\x18\x06 \x01(\tR\rnextPageToken\x1aw\n\x04Item\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05isdir\x18\x02 \x01(\x08R\x05isdir\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12\x19\n\x08has_size\x18\x04 \x01(\x08R\x07hasSize\x12\x16\n\x06\x64igest\x18\x05 \x01(\tR\x06\x64igest\"\x13\n\x11\x46ollowLogsRequest\".\n\x12\x46ollowLogsResponse\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message2\x8c\x04\n\x0cIndexService\x12\x44\n\tGetStatus\x12\x19.ocfl.v1.GetStatusRequest\x1a\x1a.ocfl.v1.GetStatusResponse\"\x00\x12\x41\n\x08IndexAll\x12\x18.ocfl.v1.IndexAllRequest\x1a\x19.ocfl.v1.IndexAllResponse\"\x00\x12\x41\n\x08IndexIDs\x12\x18.ocfl.v1.IndexIDsRequest\x1a\x19.ocfl.v1.IndexIDsResponse\"\x00\x12J\n\x0bListObjects\x12\x1b.ocfl.v1.ListObjectsRequest\x1a\x1c.ocfl.v1.ListObjectsResponse\"\x00\x12\x44\n\tGetObject\x12\x19.ocfl.v1.GetObjectRequest\x1a\x1a.ocfl.v1.GetObjectResponse\"\x00\x12S\n\x0eGetObjectState\x12\x1e.ocfl.v1.GetObjectStateRequest\x1a\x1f.ocfl.v1.GetObjectStateResponse\"\x00\x12I\n\nFollowLogs\x12\x1a.ocfl.v1.FollowLogsRequest\x1a\x1b.ocfl.v1.FollowLogsResponse\"\x00\x30\x01\x42\x8b\x01\n\x0b\x63om.ocfl.v1B\nIndexProtoP\x01Z3github.com/srerickson/ocfl-index/gen/ocfl/v1;ocflv1\xa2\x02\x03OXX\xaa\x02\x07Ocfl.V1\xca\x02\x07Ocfl\\V1\xe2\x02\x13Ocfl\\V1\\GPBMetadata\xea\x02\x08Ocfl::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,29 +36,29 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_INDEXIDSRESPONSE']._serialized_start=419
   _globals['_INDEXIDSRESPONSE']._serialized_end=437
   _globals['_LISTOBJECTSREQUEST']._serialized_start=439
-  _globals['_LISTOBJECTSREQUEST']._serialized_end=519
-  _globals['_LISTOBJECTSRESPONSE']._serialized_start=522
-  _globals['_LISTOBJECTSRESPONSE']._serialized_end=828
-  _globals['_LISTOBJECTSRESPONSE_OBJECT']._serialized_start=649
-  _globals['_LISTOBJECTSRESPONSE_OBJECT']._serialized_end=828
-  _globals['_GETOBJECTREQUEST']._serialized_start=830
-  _globals['_GETOBJECTREQUEST']._serialized_end=877
-  _globals['_GETOBJECTRESPONSE']._serialized_start=880
-  _globals['_GETOBJECTRESPONSE']._serialized_end=1429
-  _globals['_GETOBJECTRESPONSE_VERSION']._serialized_start=1146
-  _globals['_GETOBJECTRESPONSE_VERSION']._serialized_end=1429
-  _globals['_GETOBJECTRESPONSE_VERSION_USER']._serialized_start=1368
-  _globals['_GETOBJECTRESPONSE_VERSION_USER']._serialized_end=1420
-  _globals['_GETOBJECTSTATEREQUEST']._serialized_start=1432
-  _globals['_GETOBJECTSTATEREQUEST']._serialized_end=1629
-  _globals['_GETOBJECTSTATERESPONSE']._serialized_start=1632
-  _globals['_GETOBJECTSTATERESPONSE']._serialized_end=1976
-  _globals['_GETOBJECTSTATERESPONSE_ITEM']._serialized_start=1857
-  _globals['_GETOBJECTSTATERESPONSE_ITEM']._serialized_end=1976
-  _globals['_FOLLOWLOGSREQUEST']._serialized_start=1978
-  _globals['_FOLLOWLOGSREQUEST']._serialized_end=1997
-  _globals['_FOLLOWLOGSRESPONSE']._serialized_start=1999
-  _globals['_FOLLOWLOGSRESPONSE']._serialized_end=2045
-  _globals['_INDEXSERVICE']._serialized_start=2048
-  _globals['_INDEXSERVICE']._serialized_end=2572
+  _globals['_LISTOBJECTSREQUEST']._serialized_end=548
+  _globals['_LISTOBJECTSRESPONSE']._serialized_start=551
+  _globals['_LISTOBJECTSRESPONSE']._serialized_end=857
+  _globals['_LISTOBJECTSRESPONSE_OBJECT']._serialized_start=678
+  _globals['_LISTOBJECTSRESPONSE_OBJECT']._serialized_end=857
+  _globals['_GETOBJECTREQUEST']._serialized_start=859
+  _globals['_GETOBJECTREQUEST']._serialized_end=906
+  _globals['_GETOBJECTRESPONSE']._serialized_start=909
+  _globals['_GETOBJECTRESPONSE']._serialized_end=1458
+  _globals['_GETOBJECTRESPONSE_VERSION']._serialized_start=1175
+  _globals['_GETOBJECTRESPONSE_VERSION']._serialized_end=1458
+  _globals['_GETOBJECTRESPONSE_VERSION_USER']._serialized_start=1397
+  _globals['_GETOBJECTRESPONSE_VERSION_USER']._serialized_end=1449
+  _globals['_GETOBJECTSTATEREQUEST']._serialized_start=1461
+  _globals['_GETOBJECTSTATEREQUEST']._serialized_end=1658
+  _globals['_GETOBJECTSTATERESPONSE']._serialized_start=1661
+  _globals['_GETOBJECTSTATERESPONSE']._serialized_end=2005
+  _globals['_GETOBJECTSTATERESPONSE_ITEM']._serialized_start=1886
+  _globals['_GETOBJECTSTATERESPONSE_ITEM']._serialized_end=2005
+  _globals['_FOLLOWLOGSREQUEST']._serialized_start=2007
+  _globals['_FOLLOWLOGSREQUEST']._serialized_end=2026
+  _globals['_FOLLOWLOGSRESPONSE']._serialized_start=2028
+  _globals['_FOLLOWLOGSRESPONSE']._serialized_end=2074
+  _globals['_INDEXSERVICE']._serialized_start=2077
+  _globals['_INDEXSERVICE']._serialized_end=2601
 # @@protoc_insertion_point(module_scope)
