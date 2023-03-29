@@ -1,5 +1,4 @@
 import ocflindex
-import grpc
 
 with ocflindex.Client("ocfl-index.fly.dev") as client:
     obj = client.get_object_state("https://osf.io/9xhsd", recursive=True)

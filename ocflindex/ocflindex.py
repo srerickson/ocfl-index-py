@@ -2,7 +2,6 @@ import ocfl.v1.index_pb2_grpc as api
 import ocfl.v1.index_pb2 as pb2
 import requests
 import grpc
-import os
 import sys
 from dataclasses import dataclass
 from datetime import datetime

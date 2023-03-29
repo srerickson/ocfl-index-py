@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ocflindex"
 version = "0.0.1"
 dependencies = [
+    "requests",
     "grpcio",
     "protobuf",
 ]
