@@ -5,7 +5,7 @@ import sys
 from ocfl.v1 import index_pb2 as pb2
 from ocfl.v1 import index_pb2_grpc as api
 from ocflindex.models import Status, Object, ObjectState, ObjectStateChild, ObjectListItem
-from typing import Optional
+from typing import Optional, Iterable
 
 class ObjectListIterator:
     def __init__(self, api, page_size=1000, prefix=""):
@@ -98,8 +98,10 @@ class Client:
     def list_objects(self, prefix: str ="") -> ObjectListIterator:
         return ObjectListIterator(self.api, prefix=prefix)
     
-    def request_digest(self, digest: str):
-        resp = requests.get(f"https://{self.srv_addr}/download/{digest}", stream=True)
-        for chunk in resp.iter_content(chunk_size=1024 * 64):
-           sys.stdout.write(chunk.decode('utf8') + "\n")
+    def content_stream(self, digest: str, **kwargs) -> Iterable[any]:
+        """makes a request to download the content with the given digest, returning
+        an iterator over the response data. 
+        """
+        resp = requests.get(f"{self.download_base_url}/download/{digest}", stream=True)
+        return resp.iter_content(**kwargs)
         
