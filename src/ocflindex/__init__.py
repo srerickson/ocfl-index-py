@@ -39,24 +39,28 @@ class ObjectListIterator:
         self.next_page_token = resp.next_page_token
 
 class Client:
-    def __init__(self, 
-                 srv_addr: str,
-                 credentials: Optional[grpc.ChannelCredentials] = grpc.ssl_channel_credentials(), 
-                 channel:  Optional[grpc.Channel] = None,
-                 insecure: bool = False, 
-                 download_base_url: Optional[str] = None) -> None:
-        
-        self.srv_addr = srv_addr
-        self.download_base_url = download_base_url
-        if self.download_base_url is None:
-            self.download_base_url = self.srv_addr
-        if channel is not None:
-            self.channel = channel
-        elif credentials is not None:
-            self.channel = grpc.secure_channel(srv_addr, credentials)
-        elif insecure:
-            self.channel = grpc.insecure_channel(srv_addr)
+    def __init__(self, url: str,
+                 client_key: Optional[str] = None,
+                 client_cert: Optional[str] = None) -> None:
+        self.download_base_url = url
+        if url.startswith("https://"):
+            credentials: grpc.ssl_channel_credentials
+            if client_cert is not None and client_key is not None:
+                cert = open(client_cert, "rb").read()
+                key = open(client_key, "rb").read()
+                credentials = grpc.ssl_channel_credentials(private_key=key, certificate_chain=cert)
+            else:
+                credentials = grpc.ssl_channel_credentials()
+            self.srv_addr = url.removeprefix("https://")
+            self.channel = grpc.secure_channel(self.srv_addr, credentials=credentials)
+        elif url.startswith("http://"):
+            self.srv_addr = url.removeprefix("http://")
+            self.channel = grpc.insecure_channel(self.srv_addr)
+        else:
+            raise Exception("client url should begin with 'http://' or 'https://'")
         self.api = api.IndexServiceStub(self.channel)
+        self.session = requests.Session()
+        self.session.cert = (client_cert, client_key)
 
     def __enter__(self):
         return self
@@ -98,10 +102,11 @@ class Client:
     def list_objects(self, prefix: str ="") -> ObjectListIterator:
         return ObjectListIterator(self.api, prefix=prefix)
     
-    def content_stream(self, digest: str, **kwargs) -> Iterable[any]:
+    def content_stream(self, digest: str, **kwargs) -> None:
         """makes a request to download the content with the given digest, returning
         an iterator over the response data. 
         """
-        resp = requests.get(f"{self.download_base_url}/download/{digest}", stream=True)
-        return resp.iter_content(**kwargs)
+        with self.session.get(f"{self.download_base_url}/download/{digest}", stream=True) as r:
+            for b in r.iter_content(**kwargs):
+                yield b
         
